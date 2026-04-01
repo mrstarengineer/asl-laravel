@@ -1,0 +1,110 @@
+<?php
+
+namespace App\Presenters;
+
+
+use App\Transformer\VehicleTransformer;
+use Nahid\Presento\Presenter;
+
+class VehicleDetailPresenter extends Presenter
+{
+    public function present (): array
+    {
+        return [
+            'id',
+            'version_id',
+            'total_photos'               => 'vehicle_image_count',
+            'hat_number',
+            'vehicle_type',
+            'year',
+            'color',
+            'model',
+            'make',
+            'vin',
+            'weight',
+            'weight_in_kg',
+            'pieces',
+            'lot_number',
+            'towed_amount',
+            'storage_amount',
+            'status_name'                => 'status',
+            'state_name'                 => 'state',
+            'status',
+            'load_status',
+            'check_number',
+            'additional_charges',
+            'location_id',
+            'yard_id',
+            'customer_user_id',
+            'towing_request_id',
+            'title_amount',
+            'container_number',
+            'keys',
+            'keys_name'                  => 'keys',
+            'key_note',
+            'vcr',
+            'value',
+            'auction_at',
+            'auction_at_name',
+            'towed_from',
+            'note',
+            'loading_type'               => 'load_status',
+            'location'                   => 'location.name',
+            'customer_name'              => 'customer.customer_name',
+            'company_name'               => 'customer.company_name',
+            'legacy_customer_id'         => 'customer.legacy_customer_id',
+            'export_id',
+            'handed_over_date',
+            'title_type'                 => 'towing_request.title_type',
+            'title_type_name'            => 'towing_request.title_type',
+            'title_number'               => 'towing_request.title_number',
+            'title_received_date'        => 'towing_request.title_received_date',
+            'towing_request_date'        => 'towing_request.towing_request_date',
+            'deliver_date'               => 'towing_request.deliver_date',
+            'pickup_date'                => 'towing_request.pickup_date',
+            'condition'                  => 'towing_request.condition',
+            'damaged'                    => 'towing_request.damaged',
+            'pictures'                   => 'towing_request.pictures',
+            'towed'                      => 'towing_request.towed',
+            'title'                      => 'towing_request.title_received',
+            'title_state'                => 'towing_request.title_state',
+            'key_note'                   => 'towing_request.note',
+            'buyer_id'                   => 'license_number',
+            'license_number',
+            'eta'                        => 'export.eta',
+            'export_date'                => 'export.export_date',
+            'booking_number'             => 'export.booking_number',
+            'loading_date'               => 'export.loading_date',
+            'manifest_date'              => 'export.created_at',
+            'seal_number'                => 'export.seal_number',
+            'ar_number'                  => 'export.ar_number',
+            'container_number'           => 'export.container_number',
+            'destination'                => 'export.destination',
+            'note',
+            'photo'                      => 'vehicle_image.0.thumbnail',
+            'photos'                     => 'vehicle_image',
+            'auction_photos',
+            'pickup_photos',
+            'arrived_photos',
+            'created_at',
+            'car_paid',
+            'updated_at',
+            'vehicle_features',
+            'vehicle_conditions',
+            'vehicle_documents',
+            'invoice_photos',
+            'visible_export_button',
+            'hybrid',
+            'visible_claim_button'       => 'status',
+            'visible_key_missing_button' => 'status',
+            'visible_storage_button'     => 'status',
+            'note_status'                => 'notes_status',
+            'yard_name'                  => 'yard.name',
+        ];
+    }
+
+    public function transformer ()
+    {
+        return VehicleTransformer::class;
+    }
+}
