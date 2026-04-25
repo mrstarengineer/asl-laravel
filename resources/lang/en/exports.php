@@ -54,6 +54,7 @@ return [
         20 => "SALALAH, OMAN",
         21 => "LIBYA - ALKHOMS",
         22 => "BEIRUT, LEBANON",
+        23 => "KHORFAKKAN, UAE",
     ],
     'photos_types'       => [
         \App\Enums\ExportPhotoType::EXPORT_PHOTO          => 'export_photos',
