@@ -38,13 +38,17 @@ class InvoicesController extends Controller
     public function index ( Request $request )
     {
         ini_set( 'memory_limit', '2000M' );
+        ini_set('max_execution_time', 60);
 
         if ( $request->get( 'excel-export' ) ) {
             return Excel::download( new InvoicesExport( $request->all() ), 'invoices.xlsx' );
         }
 
         $data = $this->service->all( array_merge( $request->all(), [ 'limit' => -1 ] ) );
+
         $response[ 'invoices' ] = ( new InvoicePresenter( $data->toArray() ) )->get();
+
+
         $response[ 'summary' ] = [
             'grand_total'    => number_format( $data->sum( 'total_amount' ), 2 ),
             'total_damage'   => number_format( $data->sum( 'adjustment_damaged' ), 2 ),

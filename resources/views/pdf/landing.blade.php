@@ -57,7 +57,10 @@
                 {{ empty( $model->oti_number) ? 'OTI License #: 034147' : 'OTI License #: '.$model->oti_number }}
 
             </td>
-            <td width="10%"><img src="https://backend.aslshippingline.com/images/logo.jpg" width="" height="40" alt="{{ env('APP_NAME') }} Logo"></td>
+            <td width="10%">
+{{--                <img src="https://backend.aslshippingline.com/images/logo.jpg" width="" height="40" alt="{{ env('APP_NAME') }} Logo">--}}
+                <img src="{{ public_path('images/logo.jpg') }}" height="40" alt="asl">
+            </td>
 
             <td class="km-heading" width="45%" style="font-weight: bolder;color: black; font-size: 16px;">
                 <strong>BILL OF LADING</strong>

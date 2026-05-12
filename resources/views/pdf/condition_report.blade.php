@@ -78,8 +78,8 @@
 <div>
     <table width="100%" cellspacing="0" cellpadding="6">
         <tr>
-{{--            <td width="33.33%"><img src="{{ url('images/logo.jpg') }}" width="70px" height="50px"></td>--}}
-            <td width="33.33%"><img src="https://backend.aslshippingline.com/images/logo.jpg" width="70px" height="50px"></td>
+            <td width="33.33%"><img src="{{ public_path('images/logo.jpg') }}" width="70px" height="50px" alt="asl"></td>
+{{--            <td width="33.33%"><img src="https://backend.aslshippingline.com/images/logo.jpg" width="70px" height="50px"></td>--}}
 
             <td style="font-size: 15px; text-align: center;"> &nbsp;&nbsp;&nbsp;131 East Gardena <br>Boulevard Gardena, CA 90248 <br>&nbsp;&nbsp;&nbsp;Tel:
                 (310) 532-8557

@@ -61,7 +61,8 @@
     <table border="1px" width="100%" cellspacing="0" cellpadding="6">
         <tr>
             <td width="25%">
-                <img src="https://backend.aslshippingline.com/images/logo.jpg" width="170px" height="80px" alt="{{ env('APP_NAME') }} logo">
+{{--                <img src="https://backend.aslshippingline.com/images/logo.jpg" width="170px" height="80px" alt="{{ env('APP_NAME') }} logo">--}}
+                <img src="{{ public_path('images/logo.jpg') }}" height="40" width="170px" height="80px" alt="asl">
             </td>
             <td width="38%" style="font-weight: bolder;color: black; font-size: 12px; text-align: center;">
                 <h5>131 East Gardena<br>Boulevard Gardena, CA 90248<br>Tel: (310) 532-8557</h5>
