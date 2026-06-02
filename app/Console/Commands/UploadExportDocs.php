@@ -94,8 +94,6 @@ class UploadExportDocs extends Command
                 // ✅ Optional: S3 check (slower, but safe)
                 if (Storage::disk('s3')->exists($s3Path)) {
 
-                    $output[]['id'] = $export->id;
-                    $output[]['export_invoice'] = $s3Path;
 
                     Log::info("Already exists in S3 ulr: {$s3Path} and export id : $export->id");
 
@@ -104,6 +102,11 @@ class UploadExportDocs extends Command
                         ->update([
                             'export_invoice' => $s3Path
                         ]);
+
+                    $output[$key]['id'] = $export->id;
+                    $output[$key]['export_invoice'] = $s3Path;
+                    $output[$key]['container_no'] = $container_no;
+                    $output[$key]['ar_no'] = $ar_no;
 
                     continue;
                 }
@@ -120,11 +123,13 @@ class UploadExportDocs extends Command
                 DB::table('exports')
                     ->where('id', $export->id)
                     ->update([
-                        'export_invoice' => $uploadPath
+                        'export_invoice' => $s3Path
                     ]);
 
-                $output[]['id'] = $export->id;
-                $output[]['export_invoice'] = $uploadPath;
+                $output[$key]['id'] = $export->id;
+                $output[$key]['export_invoice'] = $s3Path;
+                $output[$key]['container_no'] = $container_no;
+                $output[$key]['ar_no'] = $ar_no;
 
                 Log::info("Uploaded & updated: {$s3Path}");
 

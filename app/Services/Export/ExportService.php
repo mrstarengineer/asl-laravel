@@ -466,6 +466,9 @@ class ExportService extends BaseService
                 case StreamshipLine::APL:
                     $url = "https://www.apl.com/ebusiness/tracking/search";
                     break;
+                case StreamshipLine::ARKAS_LINE:
+                    $url = "https://arkasline.com.tr/en/online-tracking";
+                    break;
             }
         }
 

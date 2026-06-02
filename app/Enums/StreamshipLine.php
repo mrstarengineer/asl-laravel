@@ -20,5 +20,6 @@ abstract class StreamshipLine
     const HAPAG_LLOYD = 'HAPAG LLOYD';
     const SEALAND = 'SEALAND';
     const MEDITERRANEAN = 'MEDITERRANEAN';
+    const ARKAS_LINE = 'ARKAS LINE';
 
 }
