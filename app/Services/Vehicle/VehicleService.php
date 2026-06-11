@@ -279,7 +279,11 @@ class VehicleService extends BaseService
     {
         unset( $data[ 'version_id' ] );
 
-        if($data['status'] != VehicleStatus::PICKED_UP){
+        $vehicle = Vehicle::findOrNew( $id );
+
+        if($vehicle->status == VehicleStatus::PICKED_UP && $data[ 'status' ] == VehicleStatus::ON_HAND) {
+            $data[ 'status' ] = VehicleStatus::ON_HAND;
+        }else if($data['status'] != VehicleStatus::PICKED_UP){
             unset( $data[ 'status' ] );
         }
 
@@ -289,7 +293,7 @@ class VehicleService extends BaseService
         if ( isset( $data[ 'storage_amount' ] ) ) {
             $data[ 'storage_amount' ] = (float) $data[ 'storage_amount' ];
         }
-        $vehicle = Vehicle::findOrNew( $id );
+
 
         $towingObj = TowingRequest::findOrNew( $vehicle->towing_request_id );
         if ( empty( $towingObj->deliver_date ) && !empty( $data[ 'deliver_date' ] )  && $vehicle->status == VehicleStatus::ON_THE_WAY) {
@@ -299,6 +303,7 @@ class VehicleService extends BaseService
         }else if(empty( $data[ 'deliver_date' ] ) && $id) {
             $data[ 'status' ] = VehicleStatus::ON_THE_WAY;
         }
+
 
         $towingObj->fill( $data );
         /*$towingObj->condition = isset( $data['condition'] ) ? $data['condition'] : null;
