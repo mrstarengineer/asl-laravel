@@ -384,6 +384,7 @@ class VehicleService extends BaseService
         }
     }
 
+    /**
     private function saveVehiclePhoto( $photos, $vehicleId, $type = VehiclePhotoType::VEHICLE_PHOTO )
     {
         foreach ( $photos as $url ) {
@@ -398,6 +399,39 @@ class VehicleService extends BaseService
                 $imageobj->type = $type;
                 $imageobj->save();
             }
+        }
+    }*/
+
+    private function saveVehiclePhoto($photos, $vehicleId, $type = VehiclePhotoType::VEHICLE_PHOTO)
+    {
+        $disk = Storage::disk('s3');
+
+        foreach ($photos as $url) {
+
+            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+                continue;
+            }
+
+            $path = parse_url($url, PHP_URL_PATH);
+            $uri = ltrim($path, '/');
+
+            if (!$uri) {
+                continue;
+            }
+
+            $basename = basename($uri);
+            $thumbnailFileName = dirname($uri) . '/thumb-' . $basename;
+
+            $thumbnail = $disk->exists($thumbnailFileName)
+                ? $thumbnailFileName
+                : $uri;
+
+            $imageobj = new VehicleImage();
+            $imageobj->name = $uri;
+            $imageobj->thumbnail = $thumbnail;
+            $imageobj->vehicle_id = $vehicleId;
+            $imageobj->type = $type;
+            $imageobj->save();
         }
     }
 

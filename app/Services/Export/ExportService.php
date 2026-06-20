@@ -343,6 +343,7 @@ class ExportService extends BaseService
         return $export;
     }
 
+    /**
     private function saveExportPhoto( $photos, $export_id, $type = ExportPhotoType::EXPORT_PHOTO )
     {
         foreach ( $photos as $url ) {
@@ -357,6 +358,41 @@ class ExportService extends BaseService
                 $imageobj->type = $type;
                 $imageobj->save();
             }
+        }
+    }*/
+
+    private function saveExportPhoto($photos, $export_id, $type = ExportPhotoType::EXPORT_PHOTO)
+    {
+        $disk = Storage::disk('s3');
+
+        foreach ($photos as $url) {
+
+            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+                continue;
+            }
+
+
+            $path = parse_url($url, PHP_URL_PATH);
+            $uri = ltrim($path, '/');
+
+            if (empty($uri)) {
+                continue;
+            }
+
+            $basename = basename($uri);
+            $thumbnailFileName = dirname($uri) . '/thumb-' . $basename;
+
+
+            $thumbnail = $disk->exists($thumbnailFileName)
+                ? $thumbnailFileName
+                : $uri;
+
+            $imageobj = new ExportImage();
+            $imageobj->name = $uri;
+            $imageobj->thumbnail = $thumbnail;
+            $imageobj->export_id = $export_id;
+            $imageobj->type = $type;
+            $imageobj->save();
         }
     }
 
