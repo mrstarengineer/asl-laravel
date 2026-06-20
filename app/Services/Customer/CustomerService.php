@@ -199,7 +199,7 @@ class CustomerService extends BaseService
             $user->password = Hash::make( $data[ 'password' ] );
         }
         if ( !empty( $data[ 'photo_url' ] ) ) {
-            $user->photo_url = str_replace( env( 'AWS_S3_BASE_URL' ), '', $data[ 'photo_url' ] );
+            $user->photo_url = str_replace( env( 'AWS_URL' ), '', $data[ 'photo_url' ] );
         }
         $user->save();
 
@@ -231,6 +231,7 @@ class CustomerService extends BaseService
         return $customer;
     }
 
+    /**
     public function createNewDocuments( $files, $userId )
     {
         foreach ( $files as $url ) {
@@ -238,15 +239,47 @@ class CustomerService extends BaseService
             if ( !Storage::exists( 'uploads/customers/documents/' . $userId ) ) {
                 Storage::makeDirectory( 'uploads/customers/documents/' . $userId );
             }
-            /*if( $url && $url !== 'uploads/customers/documents/' . $userId . '/' . basename( $url ) ) {
-                Storage::move( $url, 'uploads/customers/documents/' . $userId . '/' . basename( $url ) );
-            }*/
+            //if( $url && $url !== 'uploads/customers/documents/' . $userId . '/' . basename( $url ) ) {
+             //   Storage::move( $url, 'uploads/customers/documents/' . $userId . '/' . basename( $url ) );
+            //}
 
             CustomerDocument::create( [
                 'customer_user_id' => $userId,
                 //                'file'             => 'uploads/customers/documents/' . $userId . '/' . basename( $url ),
                 'file'             => $url,
             ] );
+        }
+    }*/
+
+    public function createNewDocuments($files, $userId)
+    {
+        $disk = Storage::disk('s3');
+
+        foreach ($files as $url) {
+
+            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+                continue;
+            }
+
+            $path = parse_url($url, PHP_URL_PATH);
+            $filePath = ltrim($path, '/');
+
+            if (empty($filePath)) {
+                continue;
+            }
+
+            $targetPath = "uploads/customers/documents/{$userId}/" . basename($filePath);
+
+
+            if ($disk->exists($filePath) && $filePath !== $targetPath) {
+                $disk->copy($filePath, $targetPath);
+//                $disk->delete($filePath);
+            }
+
+            CustomerDocument::create([
+                'customer_user_id' => $userId,
+                'file'             => $targetPath,
+            ]);
         }
     }
 
