@@ -505,6 +505,9 @@ class ExportService extends BaseService
                 case StreamshipLine::ARKAS_LINE:
                     $url = "https://arkasline.com.tr/en/online-tracking";
                     break;
+                case StreamshipLine::MY_TURKON_LINE:
+                    $url = "https://myturkonline.turkon.com/tracking";
+                    break;
             }
         }
 

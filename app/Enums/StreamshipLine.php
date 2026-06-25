@@ -21,5 +21,6 @@ abstract class StreamshipLine
     const SEALAND = 'SEALAND';
     const MEDITERRANEAN = 'MEDITERRANEAN';
     const ARKAS_LINE = 'ARKAS LINE';
+    const MY_TURKON_LINE = 'MY TURKON LINE';
 
 }
