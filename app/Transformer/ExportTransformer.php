@@ -108,22 +108,28 @@ class ExportTransformer extends \Nahid\Presento\Transformer
 
     public function getExportInvoicePhotoProperty( $url ): ?array
     {
-        if ( empty($url) || !Storage::exists($url) ) {
+        try{
+            $path = parse_url($url, PHP_URL_PATH);
+            $path = ltrim($path, '/');
+
+            $exists = Storage::disk('s3')->exists($path);
+
+            if ( empty($url) || !$exists ) {
+                return null;
+            }
+
+
+            return [
+                [
+                    'name' => ( basename(filter_var($url, FILTER_VALIDATE_URL) === false) && $url ) ? Storage::url($url) : $url,
+                    'url'  => ( filter_var($url, FILTER_VALIDATE_URL) === false && $url ) ? Storage::url($url) : $url,
+                    'type' => pathinfo($url, PATHINFO_EXTENSION),
+                    'size' => null,
+                ],
+            ];
+        } catch (\Exception $e) {
             return null;
         }
-
-//        if ( empty($url) ) {
-//            return null;
-//        }
-
-        return [
-            [
-                'name' => ( basename(filter_var($url, FILTER_VALIDATE_URL) === false) && $url ) ? Storage::url($url) : $url,
-                'url'  => ( filter_var($url, FILTER_VALIDATE_URL) === false && $url ) ? Storage::url($url) : $url,
-                'type' => pathinfo($url, PATHINFO_EXTENSION),
-                'size' => null,
-            ],
-        ];
     }
 
     public function getContainerImagesProperty( $photos )
