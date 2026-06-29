@@ -293,6 +293,7 @@ class VehicleController extends Controller
         return response()->json( [ 'message' => $request->get( 'note_status' ) == '1' ? 'Note Closed successfully.' : 'Note opened successfully.' ] );
     }
 
+    /**
     public function downloadPhotos( $id, Request $request )
     {
         try {
@@ -327,7 +328,96 @@ class VehicleController extends Controller
 
             return 'Something went wrong.';
         } catch ( \Exception $e ) {
+
+            Log::info($e->getMessage());
             throw new \Exception( 'Something went wrong.' );
+        }
+    }*/
+
+    public function downloadPhotos($id, Request $request)
+    {
+        try {
+            $type = $request->get('type', VehiclePhotoType::VEHICLE_PHOTO);
+
+            $allImages = VehicleImage::where([
+                'vehicle_id' => $id,
+                'type' => $type
+            ])->get();
+
+            $vehicle = $this->service->getById($id);
+
+            if (!$vehicle) {
+                return response('Vehicle not found', 404);
+            }
+
+            if ($allImages->isEmpty()) {
+                return response('No Images Found', 404);
+            }
+
+            $fileName = $vehicle->vin . '-' . trans('vehicle.photos_types.' . $type) . '.zip';
+
+            $zipPath = public_path('uploads/' . $fileName);
+
+            if (file_exists($zipPath)) {
+                unlink($zipPath);
+            }
+
+            $zip = new Filesystem(
+                new ZipArchiveAdapter($zipPath)
+            );
+
+            foreach ($allImages as $image) {
+
+                try {
+
+                    $path = $image->name;
+
+                    // If CloudFront URL stored in DB → convert to S3 path
+                    if (filter_var($path, FILTER_VALIDATE_URL)) {
+                        $path = ltrim(parse_url($path, PHP_URL_PATH), '/');
+                    }
+
+                    if (!Storage::disk('s3')->exists($path)) {
+                        continue;
+                    }
+
+                    $stream = Storage::disk('s3')->readStream($path);
+
+                    if ($stream) {
+
+                        $zip->writeStream(
+                            basename($path),
+                            $stream
+                        );
+
+                        fclose($stream);
+                    }
+
+                } catch (\Exception $e) {
+                    Log::warning('Image skipped: ' . $image->name . ' - ' . $e->getMessage());
+                }
+            }
+
+            $zip->getAdapter()
+                ->getArchive()
+                ->close();
+
+            if (!file_exists($zipPath)) {
+                return response('ZIP generation failed', 500);
+            }
+
+            return response()
+                ->download($zipPath)
+                ->deleteFileAfterSend(true);
+
+        } catch (\Exception $e) {
+
+            Log::error('Download Photos Error: ' . $e->getMessage());
+
+            return response(
+                'Something went wrong.',
+                500
+            );
         }
     }
 

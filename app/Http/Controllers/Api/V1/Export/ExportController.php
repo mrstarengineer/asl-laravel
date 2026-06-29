@@ -334,6 +334,7 @@ class ExportController extends Controller
         return $pdf->stream( $export->ar_number . '.pdf' );
     }
 
+    /**
     public function downloadPhotos( $id, Request $request )
     {
         try {
@@ -369,7 +370,121 @@ class ExportController extends Controller
         } catch ( \Exception $e ) {
             dd( $e->getMessage() );
         }
+    } */
+
+
+    public function downloadPhotos( $id, Request $request )
+    {
+        try {
+
+
+            $type = $request->get(
+                'type',
+                ExportPhotoType::EXPORT_PHOTO
+            );
+
+            $allImages = ExportImage::where([
+                'export_id' => $id,
+                'type'      => $type,
+            ])->get();
+
+            $export = $this->service->getById($id);
+
+            if ( !$export ) {
+                return response('Export not found', 404);
+            }
+
+            if ( $allImages->isEmpty() ) {
+                return response('No Images Found', 404);
+            }
+
+            $fileName =
+                $export->container_number .
+                '-' .
+                trans('exports.photos_types.' . $type) .
+                '.zip';
+
+            $zipFilePath = public_path('uploads/' . $fileName);
+
+            if ( file_exists($zipFilePath) ) {
+                unlink($zipFilePath);
+            }
+
+            $zip = new Filesystem(
+                new ZipArchiveAdapter($zipFilePath)
+            );
+
+            foreach ( $allImages as $image ) {
+
+                try {
+
+                    $path = $image->name;
+
+                    // If DB stores CloudFront URL → convert to S3 object path
+                    if ( filter_var($path, FILTER_VALIDATE_URL) ) {
+                        $path = ltrim(
+                            parse_url($path, PHP_URL_PATH),
+                            '/'
+                        );
+                    }
+
+                    if ( !Storage::disk('s3')->exists($path) ) {
+                        continue;
+                    }
+
+                    $stream = Storage::disk('s3')
+                        ->readStream($path);
+
+                    if ( $stream ) {
+
+                        $zip->writeStream(
+                            basename($path),
+                            $stream
+                        );
+
+                        fclose($stream);
+                    }
+
+                } catch ( \Exception $e ) {
+
+                    Log::warning(
+                        'Skip image: ' .
+                        $image->name .
+                        ' | ' .
+                        $e->getMessage()
+                    );
+                }
+            }
+
+            $zip->getAdapter()
+                ->getArchive()
+                ->close();
+
+            if ( !file_exists($zipFilePath) ) {
+                throw new \Exception(
+                    'ZIP generation failed.'
+                );
+            }
+
+            return response()
+                ->download($zipFilePath)
+                ->deleteFileAfterSend(true);
+
+        } catch ( \Exception $e ) {
+
+            Log::error(
+                'Export Photo Download Error: ' .
+                $e->getMessage()
+            );
+
+            return response(
+                $e->getMessage(),
+                500
+            );
+        }
+
     }
+
 
     public function uploadExportImage( $id, Request $request )
     {
