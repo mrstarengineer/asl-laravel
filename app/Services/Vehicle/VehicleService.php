@@ -376,7 +376,7 @@ class VehicleService extends BaseService
         foreach ( $documents as $url ) {
             if ( filter_var( $url, FILTER_VALIDATE_URL ) ) {
                 $imageobj = new VehicleDocument();
-                $imageobj->name = str_replace( env( 'AWS_S3_BASE_URL' ), '', $url );
+                $imageobj->name = str_replace( env('AWS_URL'), '', str_replace( env( 'AWS_S3_BASE_URL' ), '', $url ));
                 $imageobj->vehicle_id = $vehicleId;
                 $imageobj->doc_type = $type;
                 $imageobj->save();

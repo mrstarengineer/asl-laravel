@@ -4,6 +4,7 @@
         $vehicle_weight += (int) $vehicle->weight;
     }
     $manifestDate = date('Y-m-d', strtotime($export->created_at));
+    $loadingDate = date('Y-m-d', strtotime($export->loading_date));
 ?>
 <style>
     .manifesta {
@@ -247,7 +248,7 @@
                 foreach ($export->vehicles as $vehicle_detail) {
                     $towing_request = $vehicle_detail->towing_request;
                     $deliverDate = $towing_request->deliver_date;
-                    $storageDays = $deliverDate ? round( ( strtotime($manifestDate) - strtotime( $deliverDate ) ) / ( 60 * 60 * 24 ) ) : 0;
+                    $storageDays = $deliverDate ? round( ( strtotime($loadingDate) - strtotime( $deliverDate ) ) / ( 60 * 60 * 24 ) ) : 0;
                     $storageDays = $storageDays > 30 ? $storageDays - 30 : 0;
                 ?>
                 <tr>
