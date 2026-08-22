@@ -60,15 +60,18 @@ class AuthController extends Controller
             }
         }
 
+
+        if ( !$token = auth()->setTTL( $ttl )->attempt( [ $fieldType => $request->email, 'password' => $request->password ] ) ) {
+            return response()->json( [ 'status' => 401, 'error' => 'Invalid Credentials' ], 401 );
+        }
+
         $user = User::where($fieldType, $request->email)->first();
 
         if ( $user && $user->status !=  1) {
-            return response()->json( [ 'status' => 422, 'error' => 'user not active, please contact with system admin' ], 422 );
+            auth()->logout();
+            return response()->json( [ 'status' => 422, 'error' => 'You Account is not active, please contact with system admin' ], 422 );
         }
 
-        if ( !$token = auth()->setTTL( $ttl )->attempt( [ $fieldType => $request->email, 'password' => $request->password ] ) ) {
-            return response()->json( [ 'status' => 401, 'error' => 'Unauthorized' ], 401 );
-        }
 
         $userData[ 'authentication_required' ] = 0;
 
