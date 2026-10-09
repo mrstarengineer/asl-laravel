@@ -30,6 +30,7 @@ return [
         7 => "HONOLULU, HI",
         8 => "BALTIMORE, MD",
         9 => "SHANGHAI ,CNSHA",
+        10 => "CANADA",
     ],
     'port_of_discharges' => [
         1  => "JEBEL ALI, UAE",
