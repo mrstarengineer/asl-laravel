@@ -102,3 +102,8 @@ yarn-error.log
 
 #dev route
 routes/dev.php
+#Docker dev stack
+/docker/mysql/data/
+/docker/mysql/seed/*
+!/docker/mysql/seed/README.md
+!/docker/php/php.ini
