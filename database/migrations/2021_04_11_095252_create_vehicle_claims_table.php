@@ -24,7 +24,7 @@ class CreateVehicleClaimsTable extends Migration
             $table->double( 'approved_amount' )->nullable();
             $table->date( 'approved_date' )->nullable();
             $table->date( 'create_date' )->nullable();
-            $table->integer( 'claim_status', 2 )->nullable()->default(10);
+            $table->integer( 'claim_status' )->default(10);
             $table->text( 'admin_remarks' )->nullable();
             $table->string( 'vehicle_part' )->nullable();
             $table->string( 'other_parts' )->nullable();

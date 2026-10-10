@@ -1,0 +1,542 @@
+[
+    {
+        "id": 1,
+        "module_id": 1,
+        "name": "Locations Index",
+        "identifier": "locations.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 2,
+        "module_id": 1,
+        "name": "Locations Detail",
+        "identifier": "locations.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 3,
+        "module_id": 1,
+        "name": "Locations Create",
+        "identifier": "locations.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 4,
+        "module_id": 1,
+        "name": "Locations Update",
+        "identifier": "locations.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 5,
+        "module_id": 1,
+        "name": "Locations Delete",
+        "identifier": "locations.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 6,
+        "module_id": 2,
+        "name": "Countries Index",
+        "identifier": "countries.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 7,
+        "module_id": 2,
+        "name": "Countries Detail",
+        "identifier": "countries.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 8,
+        "module_id": 2,
+        "name": "Countries Create",
+        "identifier": "countries.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 9,
+        "module_id": 2,
+        "name": "Countries Update",
+        "identifier": "countries.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 10,
+        "module_id": 2,
+        "name": "Countries Delete",
+        "identifier": "countries.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 11,
+        "module_id": 3,
+        "name": "States Index",
+        "identifier": "states.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 12,
+        "module_id": 3,
+        "name": "States Detail",
+        "identifier": "states.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 13,
+        "module_id": 3,
+        "name": "States Create",
+        "identifier": "states.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 14,
+        "module_id": 3,
+        "name": "States Update",
+        "identifier": "states.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 15,
+        "module_id": 3,
+        "name": "States Delete",
+        "identifier": "states.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 16,
+        "module_id": 4,
+        "name": "Cities Index",
+        "identifier": "cities.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 17,
+        "module_id": 4,
+        "name": "Cities Detail",
+        "identifier": "cities.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 18,
+        "module_id": 4,
+        "name": "Cities Create",
+        "identifier": "cities.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 19,
+        "module_id": 4,
+        "name": "Cities Update",
+        "identifier": "cities.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 20,
+        "module_id": 4,
+        "name": "Cities Delete",
+        "identifier": "cities.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 21,
+        "module_id": 5,
+        "name": "Customers Index",
+        "identifier": "customers.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 22,
+        "module_id": 5,
+        "name": "Customers Detail",
+        "identifier": "customers.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 23,
+        "module_id": 5,
+        "name": "Customers Create",
+        "identifier": "customers.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 24,
+        "module_id": 5,
+        "name": "Customers Update",
+        "identifier": "customers.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 25,
+        "module_id": 5,
+        "name": "Customers Delete",
+        "identifier": "customers.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 26,
+        "module_id": 6,
+        "name": "Consignees Index",
+        "identifier": "consignees.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 27,
+        "module_id": 6,
+        "name": "Consignees Detail",
+        "identifier": "consignees.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 28,
+        "module_id": 6,
+        "name": "Consignees Create",
+        "identifier": "consignees.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 29,
+        "module_id": 6,
+        "name": "Consignees Update",
+        "identifier": "consignees.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 30,
+        "module_id": 6,
+        "name": "Consignees Delete",
+        "identifier": "consignees.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 31,
+        "module_id": 7,
+        "name": "Vehicles Index",
+        "identifier": "vehicles.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 32,
+        "module_id": 7,
+        "name": "Vehicles Detail",
+        "identifier": "vehicles.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 33,
+        "module_id": 7,
+        "name": "Vehicles Create",
+        "identifier": "vehicles.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 34,
+        "module_id": 7,
+        "name": "Vehicles Update",
+        "identifier": "vehicles.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 35,
+        "module_id": 7,
+        "name": "Vehicles Delete",
+        "identifier": "vehicles.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 36,
+        "module_id": 8,
+        "name": "Containers Index",
+        "identifier": "containers.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 37,
+        "module_id": 8,
+        "name": "Containers Detail",
+        "identifier": "containers.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 38,
+        "module_id": 8,
+        "name": "Containers Create",
+        "identifier": "containers.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 39,
+        "module_id": 8,
+        "name": "Containers Update",
+        "identifier": "containers.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 40,
+        "module_id": 8,
+        "name": "Containers Delete",
+        "identifier": "containers.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 41,
+        "module_id": 9,
+        "name": "Exports Index",
+        "identifier": "exports.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 42,
+        "module_id": 9,
+        "name": "Exports Detail",
+        "identifier": "exports.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 43,
+        "module_id": 9,
+        "name": "Exports Create",
+        "identifier": "exports.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 44,
+        "module_id": 9,
+        "name": "Exports Update",
+        "identifier": "exports.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 45,
+        "module_id": 9,
+        "name": "Exports Delete",
+        "identifier": "exports.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 46,
+        "module_id": 10,
+        "name": "Prices Index",
+        "identifier": "prices.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 47,
+        "module_id": 10,
+        "name": "Prices Detail",
+        "identifier": "prices.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 48,
+        "module_id": 10,
+        "name": "Prices Create",
+        "identifier": "prices.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 49,
+        "module_id": 10,
+        "name": "Prices Update",
+        "identifier": "prices.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 50,
+        "module_id": 10,
+        "name": "Prices Delete",
+        "identifier": "prices.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 51,
+        "module_id": 12,
+        "name": "Invoices Index",
+        "identifier": "invoices.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 52,
+        "module_id": 12,
+        "name": "Invoices Detail",
+        "identifier": "invoices.view",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 53,
+        "module_id": 12,
+        "name": "Invoices Create",
+        "identifier": "invoices.store",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 54,
+        "module_id": 12,
+        "name": "Invoices Update",
+        "identifier": "invoices.update",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 55,
+        "module_id": 12,
+        "name": "Invoices Delete",
+        "identifier": "invoices.destroy",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 56,
+        "module_id": 12,
+        "name": "Paid Invoice",
+        "identifier": "invoices.paid_invoice",
+        "guard_name": "api",
+        "created_at": "0000-00-00 00:00:00",
+        "updated_at": null
+    },
+    {
+        "id": 57,
+        "module_id": 12,
+        "name": "Unpaid Invoice",
+        "identifier": "invoices.unpaid_invoice",
+        "guard_name": "api",
+        "created_at": "0000-00-00 00:00:00",
+        "updated_at": null
+    },
+    {
+        "id": 58,
+        "module_id": 12,
+        "name": "Partially Paid Invoice",
+        "identifier": "invoices.partially_paid_invoice",
+        "guard_name": "api",
+        "created_at": "0000-00-00 00:00:00",
+        "updated_at": null
+    },
+    {
+        "id": 59,
+        "module_id": 11,
+        "name": "Report Module",
+        "identifier": "reports.index",
+        "guard_name": "api",
+        "created_at": "2021-06-07 21:48:31",
+        "updated_at": "2021-06-07 21:48:31"
+    },
+    {
+        "id": 60,
+        "module_id": 13,
+        "name": "User Management",
+        "identifier": "user.management",
+        "guard_name": "api",
+        "created_at": "2024-12-13 19:27:11",
+        "updated_at": "2024-12-13 19:27:11"
+    }
+]

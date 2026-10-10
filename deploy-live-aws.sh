@@ -4,7 +4,7 @@
 # nginx api.conf serves it at https://connect.amayausedcars.com
 # from /var/www/api/asl-laravel/public.
 # Nothing is built locally: the server pulls main from GitHub.
-#   ./deploy-live-aws.sh            Pull origin/main, composer install, migrations (asks), clear caches, reload PHP-FPM
+#   ./deploy-live-aws.sh            Pull origin/main, composer install (asks), migrations (asks), clear caches, reload PHP-FPM
 #   ./deploy-live-aws.sh rollback   Go back to the commit that was live before the last deploy
 #   ./deploy-live-aws.sh status     Show the live commit and pending commits
 #
@@ -71,10 +71,14 @@ preflight() {
 	remote true || { err "Cannot SSH to $SERVER"; exit 1; }
 }
 
-# composer install, optional migrations, cache clear, PHP-FPM reload, health check.
+# optional composer install, optional migrations, cache clear, PHP-FPM reload, health check.
 finish_deploy() {
-	log "composer install..."
-	remote "cd '$APP_DIR' && composer install --no-interaction --prefer-dist --optimize-autoloader"
+	if confirm "Run composer install on the server?"; then
+		log "composer install..."
+		remote "cd '$APP_DIR' && composer install --no-interaction --prefer-dist --optimize-autoloader"
+	else
+		log "Skipped composer install. vendor/ on the server is left as it is."
+	fi
 
 	local pending
 	pending="$(remote "cd '$APP_DIR' && php artisan migrate:status --no-ansi | grep -c Pending || true")"
@@ -138,7 +142,7 @@ git rev-parse HEAD > .git/DEPLOY_PREVIOUS
 git merge --ff-only "origin/$1"
 EOF
 	finish_deploy
-	printf '\nDeployment successful.\n'
+	printf '\nDeployment is done.\n'
 	printf '%s is live.\n' "$HEALTH_URL"
 }
 

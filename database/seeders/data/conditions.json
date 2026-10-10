@@ -1,0 +1,128 @@
+[
+    {
+        "id": 2,
+        "name": "FRONT WINDSHILED",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 3,
+        "name": "BONNET",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 4,
+        "name": "GRILL",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 5,
+        "name": "FRONT BUMPER",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 6,
+        "name": "FROTN HEAD LIGHT",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 7,
+        "name": "REAR WINDSHIELD",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 8,
+        "name": "TRUNK DOOR",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 9,
+        "name": "REAR BUMPER",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 10,
+        "name": "REAR BUMPER SUPPORT",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 11,
+        "name": "TAIL LAMP",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 12,
+        "name": "FRONT LEFT FENDER",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 13,
+        "name": "LEFT FRONT DOOR",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 14,
+        "name": "LEFT REAR DOOR",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 15,
+        "name": "LEFT REAR FENDER",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 16,
+        "name": "PILLAR",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 17,
+        "name": "ROOF",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 18,
+        "name": "RIGHT REAR FENDER",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 20,
+        "name": "RIGHT REAR DOOR",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 21,
+        "name": "RIGHT FRONT DOOR",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 22,
+        "name": "FRONT RIGHT FENDER",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 23,
+        "name": "FRONT TYRES",
+        "created_at": null,
+        "updated_at": null
+    }
+]
