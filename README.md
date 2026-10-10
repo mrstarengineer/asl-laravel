@@ -1,61 +1,65 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# ASL Shipping Line API
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Laravel 8 JSON API for the ASL vehicle shipping system: vehicles, containers (exports), customers, consignees,
+invoices, claims, reports. Used by the web app ([asl-frontend](https://github.com/mrstarengineer/asl-frontend)) and the mobile app.
 
-## About Laravel
+**Stack:** PHP 8.1, Laravel 8, MySQL 5.7, Redis, JWT auth, S3 file storage.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Run locally (Docker)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+docker compose up -d
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| URL | |
+|---|---|
+| http://localhost:8080 | API, endpoints under `/api/v1` |
+| http://localhost:8181 | Adminer (server `db`, user `asl`, password `secret`, database `asl_laravel`) |
 
-## Learning Laravel
+The first start creates `.env`, installs composer packages and generates the app and JWT keys.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Database.** Data is stored in `docker/mysql/data`. If that folder is empty when the stack starts, the newest
+`.sql` / `.sql.gz` file in `docker/mysql/seed/` is imported. With no dump there, the database is built from the migrations
+and seeders instead and you can log in with `admin` / `password`. To start again, stop the stack and delete `docker/mysql/data`.
+Dumps are gitignored and must stay out of the repo.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To run the API and the frontend together, keep both repos side by side and use the `manage-docker.sh` script in the parent folder.
 
-## Laravel Sponsors
+## Common commands
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+docker exec asl-backend php artisan migrate
+docker exec asl-backend php artisan route:list
+docker exec asl-backend composer install --ignore-platform-req=php
+docker compose logs -f backend
+```
 
-### Premium Partners
+## Project structure
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+```
+routes/api.v1.php              All API routes (/api/v1)
+app/Http/Controllers/Api/V1    Controllers, grouped by domain
+app/Services                   Business logic and queries
+app/Models                     Eloquent models
+app/Presenters, app/Transformer  Response shaping
+app/Exports                    Excel exports
+app/Enums                      Roles, statuses and other constants
+app/Console/Commands           Scheduled and one-off commands
+resources/views/pdf            PDF templates
+database/migrations            Schema changes
+docker/                        Local Docker config (nginx, php, mysql)
+```
 
-## Contributing
+## Notes
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Do not run `php artisan config:cache`, `route:cache` or `optimize`; the code reads `env()` directly.
+- Locally files use the `public` disk. Set `FILESYSTEM_DRIVER=s3` and the `AWS_*` keys in `.env` to use the real bucket.
+- `AGENTS.md` has the conventions in more detail (written for AI coding agents, useful for people too).
 
-## Code of Conduct
+## Deploy
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+./deploy-live-aws.sh           # deploy main to production
+./deploy-live-aws.sh status    # what is live, what is pending
+./deploy-live-aws.sh rollback
+```
