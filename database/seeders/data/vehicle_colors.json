@@ -1,0 +1,254 @@
+[
+    {
+        "id": 1,
+        "color": "BEIGE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 2,
+        "color": "BLACK",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 3,
+        "color": "BLACK & RED",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 4,
+        "color": "BLACK & WHITE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 5,
+        "color": "BLUE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 6,
+        "color": "BLUE - GRAY",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 7,
+        "color": "BROWN",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 8,
+        "color": "BURGUNDY",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 9,
+        "color": "CHARCOAL",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 10,
+        "color": "CREAM",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 11,
+        "color": "DARK  RED",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 12,
+        "color": "DARK BLUE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 13,
+        "color": "DARK PURPLE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 14,
+        "color": "GOLD",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 15,
+        "color": "GOLDEN",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 16,
+        "color": "GRAY",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 17,
+        "color": "GREEN",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 18,
+        "color": "MAROON",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 19,
+        "color": "NAVY",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 20,
+        "color": "NAVY BLUE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 21,
+        "color": "ORANGE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 22,
+        "color": "PEARL",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 23,
+        "color": "PURPLE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 24,
+        "color": "RED",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 25,
+        "color": "RED & WHITE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 26,
+        "color": "SILVER",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 27,
+        "color": "TAN",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 28,
+        "color": "WHITE",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 29,
+        "color": "YELLOW",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 30,
+        "color": "Brick red",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 31,
+        "color": "Blue-green",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 32,
+        "color": "Blue-violet",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 33,
+        "color": "Bronze",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 34,
+        "color": "Copper",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 35,
+        "color": "Cyan",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 36,
+        "color": "Indigo",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 37,
+        "color": "Ivory",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 38,
+        "color": "Olive",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 39,
+        "color": "Orange-red",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 40,
+        "color": "Pink",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 41,
+        "color": "Red-violet",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 42,
+        "color": "Violet",
+        "created_at": null,
+        "updated_at": null
+    }
+]

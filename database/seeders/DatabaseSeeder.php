@@ -13,15 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Enough to run the project on an empty database (see docker/php/entrypoint.sh).
+        // The older seeders in this folder are historical and no longer match production.
         $this->call([
-//            LocationTableSeeder::class,
-//            CountrySeeder::class,
-//            StateSeeder::class,
-//            CitySeeder::class,
-//            RolesTableSeeder::class,
-//            PermissionsTableSeeder::class,
-//            ModuleSeeder::class,
-            UserSeeder::class,
+            ReferenceDataSeeder::class,
+            LocalAdminSeeder::class,
         ]);
     }
 }
