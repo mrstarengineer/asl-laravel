@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "name": "Location",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 2,
+        "name": "Country",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 3,
+        "name": "State",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 4,
+        "name": "City",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 5,
+        "name": "Customer",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 6,
+        "name": "Consignee",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 7,
+        "name": "Vehicle",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 8,
+        "name": "Container",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 9,
+        "name": "Export",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 10,
+        "name": "Price",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 11,
+        "name": "Report",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 12,
+        "name": "Accounting",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 13,
+        "name": "Settings",
+        "deleted_at": null,
+        "created_at": null,
+        "updated_at": null
+    }
+]

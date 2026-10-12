@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "LA-OLD",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2023-11-02 17:10:05"
+    },
+    {
+        "id": 2,
+        "name": "GA",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2024-01-12 16:28:23"
+    },
+    {
+        "id": 3,
+        "name": "NY",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2020-09-20 06:24:17"
+    },
+    {
+        "id": 4,
+        "name": "TX-ISHIP",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2022-08-10 15:32:38"
+    },
+    {
+        "id": 5,
+        "name": "BALTIMORE",
+        "status": 1,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2020-09-11 10:41:50"
+    },
+    {
+        "id": 6,
+        "name": "NEWJ-2",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2020-09-14 05:38:21"
+    },
+    {
+        "id": 7,
+        "name": "TEXAS-NEJ",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2022-08-10 15:32:48"
+    },
+    {
+        "id": 8,
+        "name": "NJ-NEJ",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2020-09-11 10:42:06",
+        "updated_at": "2022-08-10 15:33:21"
+    },
+    {
+        "id": 10,
+        "name": "TEXAS",
+        "status": 1,
+        "deleted_at": null,
+        "created_at": "2020-09-15 05:08:08",
+        "updated_at": "2022-08-10 15:34:29"
+    },
+    {
+        "id": 11,
+        "name": "NEW_JERSEY",
+        "status": 1,
+        "deleted_at": null,
+        "created_at": "2020-06-24 00:00:00",
+        "updated_at": "2022-08-10 15:28:24"
+    },
+    {
+        "id": 12,
+        "name": "LA",
+        "status": 1,
+        "deleted_at": null,
+        "created_at": "2022-07-04 12:34:10",
+        "updated_at": "2023-11-02 17:10:49"
+    },
+    {
+        "id": 13,
+        "name": "SAVANNAH-LINEAR",
+        "status": 0,
+        "deleted_at": null,
+        "created_at": "2023-10-03 16:13:43",
+        "updated_at": "2024-08-10 14:28:24"
+    },
+    {
+        "id": 14,
+        "name": "LA-1",
+        "status": 1,
+        "deleted_at": "2023-11-02 17:09:29",
+        "created_at": "2023-11-02 16:53:46",
+        "updated_at": "2023-11-02 17:09:29"
+    },
+    {
+        "id": 15,
+        "name": "SAVANNAH",
+        "status": 1,
+        "deleted_at": null,
+        "created_at": "2024-01-12 15:22:48",
+        "updated_at": "2024-08-10 14:28:32"
+    },
+    {
+        "id": 16,
+        "name": "CHINA",
+        "status": 1,
+        "deleted_at": null,
+        "created_at": "2025-10-08 01:52:55",
+        "updated_at": "2025-10-11 09:34:54"
+    }
+]
