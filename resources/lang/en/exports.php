@@ -31,6 +31,7 @@ return [
         8 => "BALTIMORE, MD",
         9 => "SHANGHAI ,CNSHA",
         10 => "CANADA",
+        11 => "RIO HAINA DOMINICAN REPUBLIC",
 
     ],
     'port_of_discharges' => [
